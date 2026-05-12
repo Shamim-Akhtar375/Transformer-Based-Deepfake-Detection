@@ -3,7 +3,6 @@ services:
   - type: web
     name: deepguard-backend
     env: docker
-    plan: free
     region: ohio
     dockerContext: .
     dockerfilePath: Dockerfile.render
@@ -18,14 +17,14 @@ services:
   - type: static
     name: deepguard-frontend
     env: static
-    plan: free
     region: ohio
-    publishPath: ./frontend/dist
     buildCommand: cd frontend && npm install && npm run build
+    publishPath: frontend/dist
     envVars:
       - key: VITE_API_BASE
         fromService:
           type: web
           name: deepguard-backend
           property: host
+        prefix: https://
         suffix: /api/v1
