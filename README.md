@@ -1,6 +1,7 @@
 # DeepGuard Pro: Multimodal Transformer-Based Deepfake Detection
 
-![DeepGuard Pro Banner](docs/images/banner.png)
+<img width="1915" height="862" alt="image" src="https://github.com/user-attachments/assets/3b300aae-4f16-46d5-a300-56ea79d9c78a" />
+
 
 [![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![React](https://img.shields.io/badge/Frontend-React-61DAFB?logo=react&logoColor=black)](https://reactjs.org/)
