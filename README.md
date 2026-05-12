@@ -7,7 +7,11 @@
 [![PyTorch](https://img.shields.io/badge/Deep%20Learning-PyTorch-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge&logo=vercel)](https://transformer-based-deepfake-detectio-gamma.vercel.app/)
+
 **DeepGuard Pro** is a state-of-the-art forensic analysis platform designed for high-accuracy deepfake detection across multiple modalities (Image, Video, and Audio). Developed as a research-grade tool, it leverages advanced Vision Transformers, Temporal Aggregators, and Multimodal Fusion to provide robust media integrity verification.
+
+### 🔗 Live URL: [https://transformer-based-deepfake-detectio-gamma.vercel.app/](https://transformer-based-deepfake-detectio-gamma.vercel.app/)
 
 ## 🌟 Key Features
 
