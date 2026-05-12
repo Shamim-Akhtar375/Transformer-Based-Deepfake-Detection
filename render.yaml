@@ -14,7 +14,7 @@ services:
         value: "true"
 
   # 2. Frontend Service (Vite/React)
-  - type: static
+  - type: static_site
     name: deepguard-frontend
     env: static
     region: ohio
