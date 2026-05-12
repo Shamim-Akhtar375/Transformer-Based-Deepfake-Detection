@@ -1,0 +1,27 @@
+# Use a slim Python image to save RAM and build time on Render Free Tier
+FROM python:3.10-slim
+
+WORKDIR /app
+
+# Install system dependencies for OpenCV and FFmpeg
+RUN apt-get update && apt-get install -y \
+    libgl1-mesa-glx \
+    libglib2.0-0 \
+    ffmpeg \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install CPU-only PyTorch first to avoid massive CUDA binaries
+RUN pip install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+
+# Install other backend dependencies
+COPY backend/requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy backend code and checkpoints
+COPY backend /app/backend
+COPY checkpoints /app/checkpoints
+
+EXPOSE 8000
+
+# Start FastAPI server
+CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]

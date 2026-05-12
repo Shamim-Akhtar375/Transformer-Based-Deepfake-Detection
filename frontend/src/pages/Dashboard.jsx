@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import axios from 'axios';
 import { UploadCloud, Image as ImageIcon, Video, Activity, CheckCircle, AlertTriangle, Loader2, ScanEye, Mic, Music, Waves } from 'lucide-react';
 
-const API_BASE = 'http://localhost:8000/api/v1';
+const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8000/api/v1';
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState('image'); // 'image' or 'video'

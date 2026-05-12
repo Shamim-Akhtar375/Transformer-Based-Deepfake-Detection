@@ -1,0 +1,31 @@
+services:
+  # 1. Backend Service (FastAPI)
+  - type: web
+    name: deepguard-backend
+    env: docker
+    plan: free
+    region: ohio
+    dockerContext: .
+    dockerfilePath: Dockerfile.render
+    healthCheckPath: /
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: PYTHONUNBUFFERED
+        value: "true"
+
+  # 2. Frontend Service (Vite/React)
+  - type: static
+    name: deepguard-frontend
+    env: static
+    plan: free
+    region: ohio
+    publishPath: ./frontend/dist
+    buildCommand: cd frontend && npm install && npm run build
+    envVars:
+      - key: VITE_API_BASE
+        fromService:
+          type: web
+          name: deepguard-backend
+          property: host
+        suffix: /api/v1
