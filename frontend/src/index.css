@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-textMain font-sans overflow-x-hidden;
+    background-image: 
+      radial-gradient(circle at 50% 0%, #007A8A22 0%, transparent 50%),
+      radial-gradient(circle at 100% 50%, #6E00FF22 0%, transparent 50%);
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-surface/60 backdrop-blur-md border border-white/10 shadow-glass rounded-xl;
+  }
+  
+  .cyber-button {
+    @apply relative px-6 py-2 bg-transparent border border-primary text-primary font-medium tracking-wider uppercase overflow-hidden transition-all duration-300;
+  }
+  
+  .cyber-button:hover {
+    @apply bg-primary/10 shadow-neon;
+  }
+  
+  .cyber-button::before {
+    content: '';
+    @apply absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-primary/30 to-transparent transition-all duration-500;
+  }
+  
+  .cyber-button:hover::before {
+    @apply left-[100%];
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_auto] animate-gradient;
+  }
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  animation: gradient 3s linear infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-surfaceHighlight rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primaryDark;
+}

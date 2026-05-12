@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# Node.js
+node_modules/
+dist/
+build/
+
+# IDEs
+.vscode/
+.idea/
+
+# Large Files (Models should be handled via LFS or external download)
+checkpoints/*.pth
+checkpoints/*.onnx
+
+# Misc
+.DS_Store
+*.log
